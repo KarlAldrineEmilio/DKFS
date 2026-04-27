@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full Page */
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+    padding: 20px;
+
+    /* Background settings */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Logo */
+#logo {
+    width: 48vw;
+    max-width: 500px;
+    min-width: 260px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* Menu */
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Buttons */
+.menu-btn {
+    height: 9.5vh;
+    max-height: 95px;
+    min-height: 55px;
+    width: auto;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Link wrapper */
+#menu a {
+    display: block;
+}
+
+/* Hover */
+.menu-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Click */
+.menu-btn:active {
+    transform: scale(0.95);
+}
+
+/* Portrait Mode */
+@media (orientation: portrait) {
+    body {
+        background-image: url("CookingMamaBackgroundPortrait.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #logo {
+        width: 70vw;
+    }
+
+    .menu-btn {
+        height: 8.5vh;
+    }
+}
+
+/* Landscape Mode */
+@media (orientation: landscape) {
+    body {
+        background-image: url("CookingMamaBackgroundLandscape.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #logo {
+        width: 42vw;
+    }
+
+    .menu-btn {
+        height: 9vh;
+    }
+}
+
+/* Smaller Windows */
+@media (max-height: 700px) {
+    #logo {
+        margin-bottom: 20px;
+    }
+
+    .menu-btn {
+        height: 8vh;
+        min-height: 50px;
+    }
+
+    #menu {
+        gap: 8px;
+    }
+}

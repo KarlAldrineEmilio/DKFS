@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donya Kiara</title>
+    <link rel="stylesheet" href="DonyaKiaraCSS.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <img src="DonyaKiaraLogo.png" id="logo" alt="Donya Kiara Logo">
+
+        <!-- Button Stack -->
+        <div id="menu">
+            <a href="https://www.facebook.com/kj.meimban" target="_blank">
+                <img src="Contact.png" class="menu-btn" alt="Contact">
+            </a>
+            <img src="Cakes.png" class="menu-btn" alt="Cakes">
+            <img src="Pastries.png" class="menu-btn" alt="Pastries">
+            <img src="Bilao.png" class="menu-btn" alt="Bilao">
+            <img src="Order.png" class="menu-btn" alt="Order">
+        </div>
+    </div>
+
+    <!-- Sounds -->
+    <audio id="clickSound" src="ButtonClickSound.wav"></audio>
+    <audio id="bgMusic" src="Done-CookingMamaSoundtrack.mp3" loop></audio>
+
+    <script>
+        const logo = document.getElementById("logo");
+        const clickSound = document.getElementById("clickSound");
+        const bgMusic = document.getElementById("bgMusic");
+
+        let started = false;
+
+        function unlockAudio() {
+            if (started) return;
+
+            bgMusic.volume = 1.0;
+            bgMusic.play().catch(() => {});
+            started = true;
+        }
+
+        document.addEventListener("pointerdown", unlockAudio, { once: true });
+
+        logo.addEventListener("click", () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        });
+
+        document.querySelectorAll(".menu-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            });
+        });
+    </script>
+
+</body>
+</html>
