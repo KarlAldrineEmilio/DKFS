@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes</title>
+    <link rel="stylesheet" href="Cakes.css">
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" src="Done-CookingMamaSoundtrack.mp3" loop></audio>
+
+    <!-- Click Sound -->
+    <audio id="clickSound" src="ButtonClickSound.wav"></audio>
+
+    <div class="container">
+
+        <img src="CSelection.png" class="cake-btn" alt="C Selection">
+
+        <!-- LINKED BUTTONS -->
+        <a href="ChiffonSizes.html">
+            <img src="Chiffon.png" class="cake-btn" alt="Chiffon">
+        </a>
+
+        <a href="MoistSizes.html">
+            <img src="Moist.png" class="cake-btn" alt="Moist">
+        </a>
+
+        <a href="DonyaKiaraHTML.html">
+            <img src="Back.png" class="cake-btn" alt="Back">
+        </a>
+
+    </div>
+
+    <script>
+        const bgMusic = document.getElementById("bgMusic");
+        const clickSound = document.getElementById("clickSound");
+
+        let started = false;
+
+        function unlockAudio() {
+            if (started) return;
+            bgMusic.volume = 1.0;
+            bgMusic.play().catch(() => {});
+            started = true;
+        }
+
+        document.addEventListener("pointerdown", unlockAudio, { once: true });
+
+        // sound for ALL clickable images (including inside links)
+        document.querySelectorAll(".cake-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            });
+        });
+    </script>
+
+</body>
+</html>
