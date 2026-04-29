@@ -10,7 +10,7 @@ html, body {
     overflow: hidden;
 }
 
-/* safer background handling for GitHub Pages */
+/* Background (stable for GitHub Pages) */
 body {
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ body {
     background-size: cover;
 }
 
-/* center wrapper */
+/* Layout wrapper */
 .container {
     display: flex;
     flex-direction: column;
@@ -34,54 +34,62 @@ body {
     height: 100%;
 }
 
-/* LOGO */
+/* 🔥 LOGO (FIXED SIZE FOR GITHUB) */
 #logo {
-    height: 48vh;
-    max-height: 650px;
-    min-height: 270px;
+    height: 28vh;        /* reduced from 48vh */
+    max-height: 320px;   /* prevents oversizing */
+    min-height: 180px;
     width: auto;
 }
 
-/* BUTTONS */
+/* MENU */
 #menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5vh;
+    gap: 1.2vh;
 }
 
-/* same sizing */
+/* 🔥 BUTTONS (FIXED SIZE FOR GITHUB) */
 .menu-btn {
-    height: 18vh;
-    max-height: 240px;
-    min-height: 120px;
+    height: 10vh;        /* reduced from 18vh */
+    max-height: 140px;
+    min-height: 80px;
     width: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .menu-btn:hover {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .menu-btn:active {
     transform: scale(0.95);
 }
 
-/* portrait */
+/* Portrait adjustment */
 @media (orientation: portrait) {
     body {
         background-image: url("CookingMamaBackgroundPortrait.jpg");
     }
 
     #logo {
-        height: 42vh;
+        height: 26vh;
+    }
+
+    .menu-btn {
+        height: 9vh;
     }
 }
 
-/* landscape */
+/* Landscape adjustment */
 @media (orientation: landscape) {
     #logo {
-        height: 50vh;
+        height: 30vh;
+    }
+
+    .menu-btn {
+        height: 10vh;
     }
 }
